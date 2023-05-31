@@ -1,0 +1,25 @@
+library('shiny')
+library('maps')
+library('mapproj')
+source("C:/Users/ehial/Documents/practice-r/Lesson4/census-app/helpers.R")
+
+
+
+ui <-fluidPage(
+)
+
+server <- function(input, output){
+  
+  
+  
+  Counties <- readRDS("C:/Users/ehial/Documents/practice-r/Lesson4/census-app/data/counties.rds")
+  head(Counties)
+  percent_map(Counties$white, "darkgreen", "%White")
+  
+  output$map <- renderPlot({
+    
+  })
+
+}
+  
+shinyApp(ui = ui, server = server)
